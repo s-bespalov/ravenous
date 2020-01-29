@@ -13,7 +13,7 @@ const buisness = {
   reviewCount: 90
 };
 
-class Buisness extend React.Component {
+class Buisness extends React.Component {
   render() {
     return (<div className="Business">
               <div classNameName="image-container">
