@@ -1,18 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./BusinessList.css";
 import Business from "../Business/Business";
 
-class BusinessList extends React.Component{
-  render() {
-    return (
-      <div className="BusinessList">
-        {
-          this.props.businesses.map(business => {
-            return <Business key={business.id} business={business} />
-          })
-        }
-      </div>
-    );
-  }
+const BusinessList = props => {
+  return (
+    <div className="BusinessList">
+      {
+        props.businesses.map(business => {
+          return <Business key={business.id} business={business} />
+        })
+      }
+    </div>
+  );
 }
+
+BusinessList.propTypes = {
+  businesses: PropTypes.array
+}
+
 export default BusinessList;

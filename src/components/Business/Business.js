@@ -1,27 +1,34 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Business.css";
 
-class Business extends React.Component {
-  render() {
-    return (<div className="Business">
-              <div className="image-container">
-                <img src={this.props.business.imageSrc} alt=''/>
-              </div>
-              <h2>{this.props.business.name}</h2>
-              <div className="Business-information">
-                <div className="Business-address">
-                  <p>{this.props.business.address}</p>
-                  <p>{this.props.business.city}</p>
-                  <p>{`${this.props.business.state} ${this.props.business.zipCode}`}</p>
-                </div>
-                <div className="Business-reviews">
-                  <h3>{this.props.business.category.toUpperCase()}</h3>
-                  <h3 className="rating">{`${this.props.business.rating} stars`}</h3>
-                  <p>{`${this.props.business.reviewCount} reviews`}</p>
-                </div>
-              </div>
-            </div>);
-  }
+const Business = props => {
+  return (
+    <div className="Business">
+      <div className="image-container">
+        <img src={props.business.imageSrc} alt=''/>
+      </div>
+      <h2>{props.business.name}</h2>
+      <div className="Business-information">
+        <div className="Business-address">
+          <a target="_blank" href={props.business.mapUrl} rel="noreferrer noopener">
+          {props.business.address}
+          </a>
+          <p>{props.business.city}</p>
+          <p>{`${props.business.state} ${props.business.zipCode}`}</p>
+        </div>
+        <div className="Business-reviews">
+          <h3>{props.business.category.toUpperCase()}</h3>
+          <h3 className="rating">{`${props.business.rating} stars`}</h3>
+          <p>{`${props.business.reviewCount} reviews`}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+Business.propTypes = {
+  business: PropTypes.object
 }
 
 export default Business;

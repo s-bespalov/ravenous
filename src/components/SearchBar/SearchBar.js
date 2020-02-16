@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./SearchBar.css";
 
 class SearchBar extends React.Component {
@@ -61,21 +62,27 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    return (<div className="SearchBar">
-              <div className="SearchBar-sort-options">
-                <ul>
-                  {this.renderSortByOptions()}
-                </ul>
-              </div>
-              <div className="SearchBar-fields">
-                <input placeholder="Search Businesses" onChange={this.handleTermChange}/>
-                <input placeholder="Where?" onChange={this.handleLocationChange}/>
-              </div>
-              <div className="SearchBar-submit" onClick={this.handleSearch}>
-                <a>Let&apos;s Go</a>
-              </div>
-            </div>);
+    return (
+      <div className="SearchBar">
+        <div className="SearchBar-sort-options">
+          <ul>
+            {this.renderSortByOptions()}
+          </ul>
+        </div>
+        <div className="SearchBar-fields">
+          <input placeholder="Search Businesses" onChange={this.handleTermChange}/>
+          <input placeholder="Where?" onChange={this.handleLocationChange}/>
+        </div>
+        <div className="SearchBar-submit" onClick={this.handleSearch}>
+          <a>Let&apos;s Go</a>
+        </div>
+      </div>
+    );
   }
+}
+
+SearchBar.propTypes = {
+  searchYelp: PropTypes.func
 }
 
 export default SearchBar;
