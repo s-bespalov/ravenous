@@ -28,7 +28,8 @@ const Yelp = {
             zipCode: business.location.zip_code,
             rating: business.rating,
             reviewCount: business.review_count,
-            mapUrl: `https://www.google.com/maps/search/?api=1&query=${business.coordinates.latitude},${business.coordinates.longitude}`
+            mapUrl: `https://www.google.com/maps/search/?api=1&query=${business.coordinates.latitude},${business.coordinates.longitude}`,
+            yelpUrl: `https://www.yelp.com/biz/${business.alias}`
           };
         });
       }else {

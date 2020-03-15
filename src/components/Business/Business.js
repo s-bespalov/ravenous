@@ -6,9 +6,28 @@ const Business = props => {
   return (
     <div className="Business">
       <div className="image-container">
-        <img src={props.business.imageSrc} alt=''/>
+        <a
+          target="_blank"
+          href={props.business.yelpUrl}
+          rel="noreferrer noopener"
+        >
+          <img
+            src={props.business.imageSrc}
+            alt=''
+            href={props.business.yelpUrl}
+          />
+        </a>
       </div>
-      <h2>{props.business.name}</h2>
+      <h2>
+        <a
+          target="_blank"
+          href={props.business.yelpUrl}
+          rel="noreferrer noopener"
+          className="yelp-link"
+        >
+          {props.business.name}
+        </a>
+      </h2>
       <div className="Business-information">
         <div className="Business-address">
           <a target="_blank" href={props.business.mapUrl} rel="noreferrer noopener">
