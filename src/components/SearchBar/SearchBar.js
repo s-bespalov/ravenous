@@ -21,6 +21,7 @@ class SearchBar extends React.Component {
     this.handleTermChange = this.handleTermChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleEnterPress = this.handleEnterPress.bind(this);
   }
 
   getSortByClass(sortByOption) {
@@ -59,6 +60,19 @@ class SearchBar extends React.Component {
       this.state.sortBy
     );
     event.preventDefault();
+  }
+
+  handleEnterPress(event) {
+    if (event.keyCode === 13) {
+      this.handleSearch(event);
+    }
+  }
+
+  componentDidMount(){
+    document.addEventListener("keydown", this.handleEnterPress, false);
+  }
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.handleEnterPress, false);
   }
 
   render() {
