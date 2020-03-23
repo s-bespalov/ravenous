@@ -42,7 +42,11 @@ class SearchBar extends React.Component {
   }
 
   handleSortByChange(sortByOption) {
-    this.setState({sortBy: sortByOption});
+    this.setState({sortBy: sortByOption}, () => {
+      if (this.state.term) {
+        this.handleSearch();
+      }
+    });
   }
 
   handleTermChange(event) {
@@ -59,7 +63,9 @@ class SearchBar extends React.Component {
       this.state.location,
       this.state.sortBy
     );
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
   }
 
   handleEnterPress(event) {
